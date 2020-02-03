@@ -33,8 +33,8 @@ export default class InputSelector extends Component {
     let options = RegisterFile.names.map(name => (
       <option key={name} value={name}>{name}</option>
     ));
+    options.push(<option key="stack" value="stack">stack</option>);
     if (!destination) {
-      options.push(<option key="stack" value="stack">stack</option>);
       options.push(<option key="immediate" value="immediate">immediate</option>);
     }
     let dropdown = (
