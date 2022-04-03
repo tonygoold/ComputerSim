@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
 
 import InputSelector from './inputselector';
 import InputSource from './inputsource';
@@ -70,7 +72,6 @@ export default class OperationToolbar extends Component {
       numInputs--;
       selectors.push(
         <InputSelector
-          className="ml-2 mr-2"
           key="output"
           destination
           value={output}
@@ -82,7 +83,6 @@ export default class OperationToolbar extends Component {
     for (var i = 0; i < numInputs; i++) {
       selectors.push(
         <InputSelector
-          className="ml-2 mr-2"
           key={i}
           value={inputs[i]}
           onChange={onChangeInput.bind(this, i)}
@@ -91,17 +91,21 @@ export default class OperationToolbar extends Component {
     }
     return (
       <Form inline="true">
-        <Form.Control className="mr-2" as="select" value={opcode.id} onChange={onChangeOperation}>
-          {options}
-        </Form.Control>
-        {selectors}
-        <Button
-          className="ml-2"
-          type="submit"
-          disabled={!valid}
-          onClick={onOperation}>
-          Execute
-        </Button>
+        <Row>
+          <Col md="2" className="me-2">
+            <Form.Control as="select" value={opcode.id} onChange={onChangeOperation}>
+              {options}
+            </Form.Control>
+          </Col>
+          {selectors}
+          <Button
+            className="col-md-1 ms-2"
+            type="submit"
+            disabled={!valid}
+            onClick={onOperation}>
+            Execute
+          </Button>
+        </Row>
       </Form>
     );
   }

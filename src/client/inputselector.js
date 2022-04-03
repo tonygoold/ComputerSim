@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
 
 import { RegisterFile } from './computer';
 import InputSource from './inputsource';
@@ -38,23 +37,22 @@ export default class InputSelector extends Component {
       options.push(<option key="immediate" value="immediate">immediate</option>);
     }
     let dropdown = (
-      <Form.Control
-        className={this.props.className}
-        as="select"
-        value={value.register}
-        onChange={onChangeRegister}>
-        {options}
-      </Form.Control>
+      <Col md="2" className="ms-2 me-2">
+        <Form.Control
+          as="select"
+          value={value.register}
+          onChange={onChangeRegister}>
+          {options}
+        </Form.Control>
+      </Col>
     );
     if (value.register !== 'immediate') {
         return dropdown;
     }
     return (
-        <Form.Row>
-        <Col>
-            {dropdown}
-        </Col>
-        <Col>
+      <>
+        {dropdown}
+        <Col md="2">
             <Form.Control
                 type="number"
                 value={value.immediate}
@@ -62,7 +60,7 @@ export default class InputSelector extends Component {
                 required={this.props.required}
             />
         </Col>
-        </Form.Row>
+      </>
     );
   }
 }

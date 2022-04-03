@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
 
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 
-import InputSelector from './inputselector';
-import InputSource from './inputsource';
 import OperationToolbar from './operationtoolbar';
-
-import Opcode from './opcode';
-import { Op } from './computer';
 
 export default class FrontPanel extends Component {
   constructor(props) {
